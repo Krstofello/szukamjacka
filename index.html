@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formularz castingowy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Philosopher:wght@400;700&display=swap');
+
+  :root {
+    --blue: #005BBB;
+    --yellow: #FFD500;
+    --dark-blue: #003d80;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Philosopher', sans-serif;
+    background: linear-gradient(180deg, var(--blue) 0%, var(--blue) 50%, var(--yellow) 50%, var(--yellow) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 560px;
+    width: 100%;
+    padding: 40px 36px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    border-top: 10px solid var(--blue);
+    border-bottom: 10px solid var(--yellow);
+  }
+
+  h1 {
+    font-family: 'Marck Script', cursive;
+    text-align: center;
+    font-size: 2.4em;
+    margin: 0 0 5px;
+    background: linear-gradient(90deg, var(--blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1.05em;
+  }
+
+  label {
+    display: block;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin: 18px 0 6px;
+    font-size: 1.05em;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #cfd8e3;
+    border-radius: 10px;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0,91,187,0.15);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+
+  .required::after {
+    content: " *";
+    color: #d32f2f;
+  }
+
+  button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.15em;
+    font-weight: 700;
+    font-family: 'Philosopher', sans-serif;
+    color: var(--dark-blue);
+    background: var(--yellow);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,213,0,0.4);
+  }
+
+  .confirmation {
+    display: none;
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--dark-blue);
+    font-weight: 700;
+    margin-top: 20px;
+  }
+
+  .flag-strip {
+    height: 6px;
+    width: 60px;
+    margin: 0 auto 20px;
+    background: linear-gradient(180deg, var(--blue) 50%, var(--yellow) 50%);
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="flag-strip"></div>
+  <h1>Formularz castingowy na nowego Jacka</h1>
+  <p class="subtitle">Wypełnij dane, aby zgłosić swoją kandydaturę</p>
+
+  <form id="castingForm" action="https://formsubmit.co/bullysmg@proton.me" method="POST">
+    <input type="hidden" name="_subject" value="Nowe zgłoszenie - casting na Jacka">
+    <input type="hidden" name="_captcha" value="false">
+    
+  <form id="castingForm">
+    <label class="required" for="fullname">Imię i nazwisko</label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label class="required" for="birthdate">Data urodzenia</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+
+    <label class="required" for="city">Miejscowość zamieszkania</label>
+    <input type="text" id="city" name="city" required placeholder="np. Kijów, Lwów, Odessa...">
+
+    <label class="required" for="interests">Zainteresowania / hobby</label>
+    <textarea id="interests" name="interests" required placeholder="Opisz swoje zainteresowania"></textarea>
+
+    <label for="experience">Czy masz jakąś świnie ? Jak tak to ile?</label>
+    <textarea id="experience" name="experience" placeholder="Jak się nazywa?"></textarea>
+
+    <label class="required" for="email">Krew świni:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Co sądzisz o rewolucji energetycznej i czy uważasz że źle wpłynie na ceny czeczeńskiego zboża i sektora militarnego?</label>
+    <input type="tel" id="phone" name="phone" placeholder="np. spierdalaj">
+
+        <label for="phone">Jak ma na imię twój ulubiony dziadek?</label>
+    <input type="tel" id="phone" name="phone" placeholder="np. Antoni">
+
+        <label class="required" for="email">Gdzie jeździ Jacek co roku na wakację? Jak się nazywa? (Zapizdowie w Polsce)</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>Przykładowe sceny na spektaklu Jacka:</label>
+    <img src="scena.jpg" alt="Przykładowa scena ze spektaklu" style="width:100%; max-height:400px; object-fit:cover; border-radius:10px; margin-bottom:20px; display:block;">
+
+
+    <button type="submit">Wyślij zgłoszenie</button>
+  </form>
+
+  <p class="confirmation" id="confirmation">Dziękujemy! Zgłoszenie zostało zapisane. ✔</p>
+</div>
+
+<script>
+  document.getElementById('castingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Tu można podpiąć wysyłkę np. do Google Forms / e-mail / backendu
+    document.getElementById('confirmation').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
